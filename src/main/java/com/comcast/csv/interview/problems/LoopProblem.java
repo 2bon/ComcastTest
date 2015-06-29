@@ -102,8 +102,8 @@ public class LoopProblem {
 			m.setYear((int) (Math.random() * 99));
 			Ms.add(m);
 		}
-		new LoopProblem().forLoops(Ms);
-		new LoopProblem().whileLoops(Ms);
-		new LoopProblem().doWhileLoops(Ms);
+		forLoops(Ms);
+		whileLoops(Ms);
+		doWhileLoops(Ms);
 	}
 }
