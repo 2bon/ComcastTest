@@ -38,17 +38,25 @@ public class StringParsingProblem {
 	 * @return true if the address is valid
 	 */
 
-	public boolean isAddressValid(String address) {
+	public static boolean isAddressValid(String address) {
 		String[] alphaParts = address.split("( |\\d)");
 		String[] digitParts = address.split("\\D");
-		if ((alphaParts.length != 3) || (digitParts.length != 2)) {
+		if (alphaParts.length != 3) {
+			System.out
+					.println("Wrong:  alphaParts.length=" + alphaParts.length);
 			return false;
 		} else {
-			return digitParts[0].matches(regexPattern.get(0))
-					&& alphaParts[0].matches(regexPattern.get(1))
-					&& digitParts[1].matches(regexPattern.get(2))
-					&& alphaParts[1].matches(regexPattern.get(3))
-					&& alphaParts[2].matches(regexPattern.get(4));
+			if (digitParts.length != 2) {
+				System.out.println("Wrong:	digitParts.length="
+						+ digitParts.length);
+				return false;
+			} else {
+				return digitParts[0].matches(regexPattern.get(0))
+						&& alphaParts[0].matches(regexPattern.get(1))
+						&& digitParts[1].matches(regexPattern.get(2))
+						&& alphaParts[1].matches(regexPattern.get(3))
+						&& alphaParts[2].matches(regexPattern.get(4));
+			}
 
 		}
 	}
@@ -61,12 +69,32 @@ public class StringParsingProblem {
 	 *            the address
 	 * @return the distance
 	 */
-	public int getDistanceFromCityCenter(String address) {
+	public static int getDistanceFromCityCenter(String address) {
 		if (isAddressValid(address)) {
 			String[] digitParts = address.split("\\D");
 			return Integer.parseInt(digitParts[0]);
 		} else {
 			return Integer.MIN_VALUE;
+		}
+	}
+
+	public static void main(String[] args) {
+		ArrayList<String> tList = new ArrayList<String>();
+		tList.add(" -25w8_7@m3 Apple St._@#");
+		tList.add("  3n17 Special Ave.");
+		tList.add("  0e34800 Main St.");
+		tList.add("s");
+		tList.add("23ew");
+		tList.add("");
+		tList.add("25w8_7@m3 Apple St._@#");
+		tList.add("3n17 Special Ave.");
+		tList.add("0e34800 Main St.");
+		tList.add("");
+		tList.add("");
+		for (String t : tList) {
+			System.out.println(t + " =" + isAddressValid(t)
+			// + " d="+ getDistanceFromCityCenter(t)
+					);
 		}
 	}
 }
