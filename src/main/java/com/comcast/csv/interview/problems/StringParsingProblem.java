@@ -19,15 +19,16 @@ public class StringParsingProblem {
 	public StringParsingProblem() {
 
 		// * 1. Number of miles from the center of the city
-		regexPattern.add("\\d");
+		regexPattern.add("^\\d+$");// positive integers + 0
 		// * 2. Primary direction from the city as a single lower-case letter
-		regexPattern.add(null);
+		regexPattern.add("^(e|w|s|n){1}$");// single lower-case letter from 4
+											// candidates
 		// * 3. Street number
-		regexPattern.add(null);
+		regexPattern.add("^[1-9]\\d*$");// positive integers
 		// * 4. Street name (always a single word)
-		regexPattern.add(null);
+		regexPattern.add("^[A-Za-z]+$");
 		// * 5. An abbreviation for either a Street or Avenue with a period
-		regexPattern.add("(St|Ave).");
+		regexPattern.add("^(St|Ave)\\.$");// period !=Any character
 	}
 
 	/**
