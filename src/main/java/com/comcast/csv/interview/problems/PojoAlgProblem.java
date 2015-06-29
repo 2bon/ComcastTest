@@ -21,19 +21,11 @@ public class PojoAlgProblem {
 	public void bottomRight(Rectangle inner, Rectangle outer) {
 
 		double HeightDiff = outer.getHeight() - inner.getHeight();// HeightDiff>=0
-		int newY = 0;
-		if (outer.getMaxY() >= 0) {
-			newY = (int) (outer.getMaxY() - HeightDiff);
-		} else {
-			newY = (int) (outer.getMaxY() + HeightDiff);
-		}
+		int newY = (int) (outer.getY() - HeightDiff);// upper-left
+														// ,getY()=getMaxY()
 		double widthDiff = outer.getWidth() - inner.getWidth();// widthDiff>=0
-		int newX = 0;
-		if (outer.getMaxX() >= 0) {
-			newX = (int) (outer.getMaxX() - widthDiff);
-		} else {
-			newX = (int) (outer.getMaxX() + widthDiff);
-		}
+		int newX = (int) (outer.getX() + widthDiff);// upper-left
+													// ,getX()=getMinX()
 		inner.setLocation(newX, newY);
 	}
 
@@ -48,20 +40,10 @@ public class PojoAlgProblem {
 	 */
 	public void middleCenter(Rectangle inner, Rectangle outer) {
 
-		double widthDiff = outer.getWidth() - inner.getWidth();// widthDiff>=0
-		int newX = 0;
-		if (outer.getMaxX() >= 0) {
-			newX = (int) (outer.getMaxX() - widthDiff / 2);
-		} else {
-			newX = (int) (outer.getMaxX() + widthDiff);
-		}
 		double HeightDiff = outer.getHeight() - inner.getHeight();// HeightDiff>=0
-		int newY = 0;
-		if (outer.getMaxY() >= 0) {
-			newY = (int) (outer.getMaxY() - HeightDiff / 2);
-		} else {
-			newY = (int) (outer.getMaxY() + HeightDiff);
-		}
+		int newY = (int) (outer.getY() - HeightDiff / 2);// getY()=getMaxY()
+		double widthDiff = outer.getWidth() - inner.getWidth();// widthDiff>=0
+		int newX = (int) (outer.getX() + widthDiff / 2);// getX()=getMinX()
 		inner.setLocation(newX, newY);
 	}
 }
