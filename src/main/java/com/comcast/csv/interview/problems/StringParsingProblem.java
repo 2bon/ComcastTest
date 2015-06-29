@@ -39,15 +39,16 @@ public class StringParsingProblem {
 	 */
 
 	public static boolean isAddressValid(String address) {
-		String[] alphaParts = address.split("( |\\d)");
-		String[] digitParts = address.split("\\D");
-		if (alphaParts.length != 3) {
-			System.out
-					.println("Wrong:  alphaParts.length=" + alphaParts.length);
+		System.out.println(address);
+		String[] alphaParts = address.split("( |\\d)+");
+		String[] digitParts = address.split("\\D+");
+		if (alphaParts.length != 4) {
+			System.out.println(" Wrong:  alphaParts.length="
+					+ alphaParts.length);
 			return false;
 		} else {
-			if (digitParts.length != 2) {
-				System.out.println("Wrong:	digitParts.length="
+			if (digitParts.length != 3) {
+				System.out.println(" Wrong:	digitParts.length="
 						+ digitParts.length);
 				return false;
 			} else {
@@ -92,7 +93,7 @@ public class StringParsingProblem {
 		tList.add("");
 		tList.add("");
 		for (String t : tList) {
-			System.out.println(t + " =" + isAddressValid(t)
+			System.out.println(" =" + isAddressValid(t)
 			// + " d="+ getDistanceFromCityCenter(t)
 					);
 		}
