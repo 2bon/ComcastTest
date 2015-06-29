@@ -23,7 +23,7 @@ public class StringParsingProblem {
 		// * 2. Primary direction from the city as a single lower-case letter
 		regexPattern.add(null);
 		// * 3. Street number
-		regexPattern.add("\\d");
+		regexPattern.add(null);
 		// * 4. Street name (always a single word)
 		regexPattern.add(null);
 		// * 5. An abbreviation for either a Street or Avenue with a period
@@ -39,14 +39,8 @@ public class StringParsingProblem {
 	 */
 
 	public boolean isAddressValid(String address) {
-		String addressNew = address.replace(" ", "");
-		if (addressNew.matches("\\W|_"))// if addressNew has non-word character
-										// or _:
-		{
-			return false;// now addressNew only have : [a-zA-Z0-9]
-		}
-		String[] alphaParts = addressNew.split("( |\\d)");
-		String[] digitParts = addressNew.split("\\D");
+		String[] alphaParts = address.split("( |\\d)");
+		String[] digitParts = address.split("\\D");
 		if ((alphaParts.length != 3) || (digitParts.length != 2)) {
 			return false;
 		} else {
