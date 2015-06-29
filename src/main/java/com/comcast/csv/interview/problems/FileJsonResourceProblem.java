@@ -30,6 +30,7 @@ public class FileJsonResourceProblem {
 	 * 
 	 * @param file
 	 *            the file to read
+	 * 
 	 * @return the list of memes read
 	 */
 	public List<Meme> readFromFile(File file) throws YoureDoingItWrongException {

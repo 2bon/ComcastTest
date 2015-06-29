@@ -13,6 +13,7 @@ public class PojoAlgProblem {
 	 * Put the inner rectangle so that it's bottom right corner aligns with the
 	 * bottom right corner of the outer rectangle.
 	 * 
+	 * 
 	 * @param inner
 	 *            the inner rectangle to position
 	 * @param outer

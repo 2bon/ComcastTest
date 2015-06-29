@@ -21,8 +21,7 @@ public class StringParsingProblem {
 		// * 1. Number of miles from the center of the city
 		regexPattern.add("^\\d+$");// positive integers + 0
 		// * 2. Primary direction from the city as a single lower-case letter
-		regexPattern.add("^(e|w|s|n){1}$");// single lower-case letter from 4
-											// candidates
+		regexPattern.add("^(e|w|s|n){1}$");// single letter of 4 candidates
 		// * 3. Street number
 		regexPattern.add("^[1-9]\\d*$");// positive integers
 		// * 4. Street name (always a single word)

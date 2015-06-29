@@ -15,10 +15,12 @@ public class CollectionsProblemImpl implements CollectionsProblem {
 
 	public void sort(Collection<Meme> memes, boolean ascending) {
 		List<Meme> memesArrayList = new ArrayList<Meme>(memes);
-		// Way1 = Meme implements Comparable
+		// // Way1 = Meme implements Comparable.
 		Collections.sort(memesArrayList);
 		// Way2 = implements a new Comparator
-		Arrays.sort((Meme[]) memes.toArray(), Meme.MemeYearComparator);
+		Meme[] memesArr = new Meme[memes.size()];
+		memesArr = memes.toArray(memesArr);
+		Arrays.sort(memesArr, Meme.MemeYearComparator);
 
 		if (ascending) {
 		} else {
@@ -54,5 +56,12 @@ public class CollectionsProblemImpl implements CollectionsProblem {
 
 	public static void main(String args[]) {
 		Collection<Meme> Ms = new ArrayList<Meme>();
+		for (int i = 1; i < 10; i++) {
+			Meme m = new Meme();
+			m.setName("m" + i);
+			m.setYear((int) (Math.random() * 99));
+			Ms.add(m);
+		}
+		new CollectionsProblemImpl().sort(Ms, false);
 	}
 }
